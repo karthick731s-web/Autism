@@ -1,12 +1,15 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const Menu = () => {
+  const navigate = useNavigate();
   const cards = [
     {
       id: 1,
       title: 'Education',
       description: 'Learn at your own pace with visual schedules, social stories, and interactive lessons designed for neurodiverse learners.',
       icon: '📚',
+      path:"/Education",
       color: 'from-purple-400 to-purple-500',
       bgColor: 'bg-purple-50',
       borderColor: 'border-purple-200',
@@ -18,6 +21,7 @@ export const Menu = () => {
       title: 'Emotion Understanding',
       description: 'Recognize and express feelings with emotion cards, mood tracking, and guided exercises for emotional regulation.',
       icon: '😊',
+      path:"/Emotion",
       color: 'from-blue-400 to-blue-500',
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
@@ -29,6 +33,7 @@ export const Menu = () => {
       title: 'Daily Progress Tracker',
       description: 'Build routines and celebrate achievements with customizable trackers, visual schedules, and positive reinforcement.',
       icon: '📊',
+      path:"/StrengthRadar",
       color: 'from-green-400 to-green-500',
       bgColor: 'bg-green-50',
       borderColor: 'border-green-200',
@@ -40,6 +45,7 @@ export const Menu = () => {
       title: 'Communication Aids',
       description: 'Express yourself with picture cards, text-to-speech tools, and customizable communication boards.',
       icon: '💬',
+      path:"/SupportTools",
       color: 'from-orange-400 to-orange-500',
       bgColor: 'bg-orange-50',
       borderColor: 'border-orange-200',
@@ -105,7 +111,7 @@ export const Menu = () => {
                 </div>
 
                 {/* Action button */}
-                <button className={`w-full py-2 px-4 ${card.bgColor} ${card.hoverColor} text-gray-700 font-medium rounded-xl transition-colors duration-200 flex items-center justify-center group/btn`}>
+                <button onClick={() => navigate(card.path)} className={`w-full py-2 px-4 ${card.bgColor} ${card.hoverColor} text-gray-700 font-medium rounded-xl transition-colors duration-200 flex items-center justify-center group/btn`}>
                   <span>Explore {card.title}</span>
                   <svg className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
